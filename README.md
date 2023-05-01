@@ -4,4 +4,4 @@ A basic to-do app built with Flutter. This app has add/delete/update functinalit
 
 ## Screenshot
 
-![Flutter todo app](./flutter-todo-iphone.png)
+![Flutter todo app](./screenshot.jpg)
