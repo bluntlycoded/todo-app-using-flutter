@@ -5,7 +5,7 @@ import '../constants/colors.dart';
 import '../widgets/todo_item.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
                           bottom: 20,
                         ),
                         child: const Text(
-                          'All ToDos',
+                          'My To do',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w500,
@@ -104,20 +104,23 @@ class _HomeState extends State<Home> {
                   bottom: 20,
                   right: 20,
                 ),
-                child: ElevatedButton(
-                  child: const Text(
-                    '+',
-                    style: TextStyle(
-                      fontSize: 40,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _addToDoItem(_todoController.text);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.teal,
+                      minimumSize: const Size(60, 60),
+                      elevation: 10,
                     ),
-                  ),
-                  onPressed: () {
-                    _addToDoItem(_todoController.text);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: tdBlue,
-                    minimumSize: const Size(60, 60),
-                    elevation: 10,
+                    child: const Text(
+                      '+',
+                      style: TextStyle(
+                        fontSize: 40,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -205,12 +208,13 @@ class _HomeState extends State<Home> {
           color: tdBlack,
           size: 30,
         ),
-        Container(
+        SizedBox(
           height: 40,
           width: 40,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Image.asset('assets/images/avatar.jpeg'),
+            child: const Icon(Icons.person,
+            color: Colors.grey,),
           ),
         ),
       ]),
